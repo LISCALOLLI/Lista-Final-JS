@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cidades</title>
+</head>
+<body>
+  <input type="text" id="cidadeInput" placeholder="Digite o nome da cidade">
+  <button id="adicionarBtn">Adicionar</button>
+  <button id="listarBtn">Listar em Ordem Alfabética</button>
+  <ul id="listaCidades"></ul>
+  
+  <script>
+    const cidadeInput = document.getElementById("cidadeInput");
+    const adicionarBtn = document.getElementById("adicionarBtn");
+    const listarBtn = document.getElementById("listarBtn");
+    const listaCidades = document.getElementById("listaCidades");
+    
+    const cidades = [];
+
+    adicionarBtn.addEventListener("click", function() {
+      const cidade = cidadeInput.value.trim();
+      if (cidade !== "") {
+        cidades.push(cidade);
+        cidadeInput.value = "";
+        cidadeInput.focus();
+      }
+    });
+
+    listarBtn.addEventListener("click", function() {
+      listaCidades.innerHTML = ""; // Limpar a lista existente
+
+      const cidadesOrdenadas = cidades.slice().sort();
+      cidadesOrdenadas.forEach(function(cidade) {
+        const li = document.createElement("li");
+        li.textContent = cidade;
+        listaCidades.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

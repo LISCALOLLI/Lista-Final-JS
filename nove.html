@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trocar Imagem</title>
+<style>
+  #imagem {
+    width: 300px;
+    transition: transform 0.3s;
+  }
+
+  #imagem:hover {
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+  <img id="imagem" src="primeira_imagem.jpg" alt="Imagem 1" onmouseover="trocarImagem(true)" onmouseout="trocarImagem(false)">
+  
+  <script>
+    const imagem = document.getElementById("imagem");
+    let imagemAtual = "primeira_imagem.jpg";
+    const primeiraImagem = "primeira_imagem.jpg";
+    const segundaImagem = "segunda_imagem.jpg";
+    
+    function trocarImagem(paraSegundaImagem) {
+      if (paraSegundaImagem) {
+        imagem.src = segundaImagem;
+      } else {
+        imagem.src = primeiraImagem;
+      }
+    }
+  </script>
+</body>
+</html>
